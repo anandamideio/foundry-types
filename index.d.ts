@@ -674,7 +674,7 @@ declare global {
   class Playlist {}
   class PlaylistSound {}
   class RollTable {}
-  class Scene {}
+  const Scene: typeof import("./_dts/client/documents/scene.d.mts").default;
   class Setting {}
   class TableResult {}
   class User {}

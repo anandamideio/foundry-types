@@ -686,7 +686,6 @@ declare global {
   }
   
   // Document Classes
-  class Actor {}
   class Adventure {}
   class Card {}
   class Cards {}
@@ -702,7 +701,6 @@ declare global {
   class Playlist {}
   class PlaylistSound {}
   class RollTable {}
-  class Scene {}
   class Setting {}
   class TableResult {}
   class User {}

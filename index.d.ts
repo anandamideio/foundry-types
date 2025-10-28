@@ -60,6 +60,187 @@
  */
 
 // ============================================================================
+// HOOK EVENTS
+// ============================================================================
+
+/**
+ * All available hook event names in Foundry VTT
+ * @see hooks.d.mts for detailed documentation of each hook
+ */
+export declare const HookEvents: {
+  // Core Lifecycle
+  init: "init";
+  i18nInit: "i18nInit";
+  setup: "setup";
+  ready: "ready";
+  streamReady: "streamReady";
+  error: "error";
+  
+  // Game
+  pauseGame: "pauseGame";
+  updateWorldTime: "updateWorldTime";
+  shutDown: "shutDown";
+  
+  // Canvas
+  canvasConfig: "canvasConfig";
+  canvasInit: "canvasInit";
+  canvasPan: "canvasPan";
+  canvasReady: "canvasReady";
+  canvasTearDown: "canvasTearDown";
+  canvasDraw: "canvasDraw";
+  dropCanvasData: "dropCanvasData";
+  highlightObjects: "highlightObjects";
+  initializeEdges: "initializeEdges";
+  
+  // Applications
+  renderApplicationV2: "renderApplicationV2";
+  renderApplicationV1: "renderApplicationV1";
+  getHeaderControlsApplicationV2: "getHeaderControlsApplicationV2";
+  getApplicationV1HeaderButtons: "getApplicationV1HeaderButtons";
+  closeApplicationV2: "closeApplicationV2";
+  closeApplicationV1: "closeApplicationV1";
+  
+  // Scene Controls
+  getSceneControlButtons: "getSceneControlButtons";
+  hotbarDrop: "hotbarDrop";
+  getDocumentContextOptions: "getDocumentContextOptions";
+  
+  // Sidebar
+  collapseSidebar: "collapseSidebar";
+  changeSidebarTab: "changeSidebarTab";
+  collapseSceneNavigation: "collapseSceneNavigation";
+  
+  // Canvas Groups & Layers
+  drawGroup: "drawGroup";
+  tearDownGroup: "tearDownGroup";
+  drawLayer: "drawLayer";
+  tearDownLayer: "tearDownLayer";
+  pastePlaceableObject: "pastePlaceableObject";
+  
+  // Active Effects
+  applyActiveEffect: "applyActiveEffect";
+  
+  // Compendium
+  updateCompendium: "updateCompendium";
+  applyCompendiumArt: "applyCompendiumArt";
+  
+  // Document CRUD Operations (Generic)
+  preCreateDocument: "preCreateDocument";
+  createDocument: "createDocument";
+  preUpdateDocument: "preUpdateDocument";
+  updateDocument: "updateDocument";
+  preDeleteDocument: "preDeleteDocument";
+  deleteDocument: "deleteDocument";
+  
+  // Token Movement
+  preMoveToken: "preMoveToken";
+  moveToken: "moveToken";
+  stopToken: "stopToken";
+  pauseToken: "pauseToken";
+  recordToken: "recordToken";
+  
+  // Placeable Objects
+  drawObject: "drawObject";
+  refreshObject: "refreshObject";
+  destroyObject: "destroyObject";
+  controlObject: "controlObject";
+  hoverObject: "hoverObject";
+  
+  // Token Specific
+  applyTokenStatusEffect: "applyTokenStatusEffect";
+  chatBubbleHTML: "chatBubbleHTML";
+  modifyTokenAttribute: "modifyTokenAttribute";
+  targetToken: "targetToken";
+  
+  // Notes
+  activateNote: "activateNote";
+  
+  // Effects
+  initializeRenderedEffectSourceShaders: "initializeRenderedEffectSourceShaders";
+  
+  // Cards
+  dealCards: "dealCards";
+  passCards: "passCards";
+  returnCards: "returnCards";
+  
+  // Actor Sheets
+  dropActorSheetData: "dropActorSheetData";
+  
+  // Interaction Layers
+  activateLayer: "activateLayer";
+  activateCanvasLayer: "activateCanvasLayer";
+  deactivateLayer: "deactivateLayer";
+  
+  // Environment & Visibility
+  configureCanvasEnvironment: "configureCanvasEnvironment";
+  initializeCanvasEnvironment: "initializeCanvasEnvironment";
+  initializeVisionMode: "initializeVisionMode";
+  initializeVisionSources: "initializeVisionSources";
+  lightingRefresh: "lightingRefresh";
+  visibilityRefresh: "visibilityRefresh";
+  initializeLightSources: "initializeLightSources";
+  initializePriorityLightSources: "initializePriorityLightSources";
+  sightRefresh: "sightRefresh";
+  
+  // Weather
+  initializeWeatherEffects: "initializeWeatherEffects";
+  
+  // Adventure
+  preImportAdventure: "preImportAdventure";
+  importAdventure: "importAdventure";
+  
+  // Users
+  userConnected: "userConnected";
+  
+  // Combat
+  combatTurnChange: "combatTurnChange";
+  combatStart: "combatStart";
+  combatTurn: "combatTurn";
+  combatRound: "combatRound";
+  initializeCombatConfiguration: "initializeCombatConfiguration";
+  
+  // ProseMirror
+  getProseMirrorMenuDropDowns: "getProseMirrorMenuDropDowns";
+  getProseMirrorMenuItems: "getProseMirrorMenuItems";
+  createProseMirrorEditor: "createProseMirrorEditor";
+  
+  // Hot Reload
+  hotReload: "hotReload";
+  
+  // Chat
+  chatInput: "chatInput";
+  renderChatInput: "renderChatInput";
+  chatMessage: "chatMessage";
+  renderChatMessageHTML: "renderChatMessageHTML";
+  
+  // Audio/Video
+  globalVolumeChanged: "globalVolumeChanged";
+  globalPlaylistVolumeChanged: "globalPlaylistVolumeChanged";
+  globalAmbientVolumeChanged: "globalAmbientVolumeChanged";
+  globalInterfaceVolumeChanged: "globalInterfaceVolumeChanged";
+  rtcSettingsChanged: "rtcSettingsChanged";
+  
+  // Settings
+  clientSettingChanged: "clientSettingChanged";
+  
+  // Roll Tables
+  dropRollTableSheetData: "dropRollTableSheetData";
+  
+  // Token Ring
+  initializeDynamicTokenRingConfig: "initializeDynamicTokenRingConfig";
+};
+
+/**
+ * Type representing all possible hook event names
+ */
+export type HookEventName = typeof HookEvents[keyof typeof HookEvents];
+
+/**
+ * Helper type for creating type-safe hook callbacks
+ */
+export type HookCallback<T extends HookEventName = HookEventName> = (...args: any[]) => void | Promise<void> | boolean;
+
+// ============================================================================
 // PACKAGE MANIFEST TYPES
 // ============================================================================
 

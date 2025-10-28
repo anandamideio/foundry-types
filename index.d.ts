@@ -240,6 +240,34 @@ export type HookEventName = typeof HookEvents[keyof typeof HookEvents];
  */
 export type HookCallback<T extends HookEventName = HookEventName> = (...args: any[]) => void | Promise<void> | boolean;
 
+
+// ============================================================================
+// DOCUMENT TYPES
+// ============================================================================
+
+/**
+ * Core document types with proper static method support
+ */
+export type { default as Scene } from './_dts/client/documents/scene.d.mts';
+export type { default as Actor } from './_dts/client/documents/actor.d.mts';
+export type { default as Item } from './_dts/client/documents/item.d.mts';
+export type { default as ChatMessage } from './_dts/client/documents/chat-message.d.mts';
+export type { default as Combat } from './_dts/client/documents/combat.d.mts';
+export type { default as Combatant } from './_dts/client/documents/combatant.d.mts';
+export type { default as JournalEntry } from './_dts/client/documents/journal-entry.d.mts';
+export type { default as Macro } from './_dts/client/documents/macro.d.mts';
+export type { default as Playlist } from './_dts/client/documents/playlist.d.mts';
+export type { default as RollTable } from './_dts/client/documents/roll-table.d.mts';
+export type { default as User } from './_dts/client/documents/user.d.mts';
+export type { default as Folder } from './_dts/client/documents/folder.d.mts';
+export type { default as Cards } from './_dts/client/documents/cards.d.mts';
+
+// Document data types
+export type { SceneData } from './_dts/common/documents/_types.d.mts';
+export type { ActorData } from './_dts/common/documents/_types.d.mts';
+export type { ItemData } from './_dts/common/documents/_types.d.mts';
+
+
 // ============================================================================
 // PACKAGE MANIFEST TYPES
 // ============================================================================
@@ -674,7 +702,7 @@ declare global {
   class Playlist {}
   class PlaylistSound {}
   class RollTable {}
-  const Scene: typeof import("./_dts/client/documents/scene.d.mts").default;
+  class Scene {}
   class Setting {}
   class TableResult {}
   class User {}
